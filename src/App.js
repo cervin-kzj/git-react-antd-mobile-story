@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import CacheRoute, { CacheSwitch } from 'react-router-cache-route';
+import { createBrowserHistory } from 'history';
 
+import { Detail } from "./pages/Detail/Detail";
+import List from "./pages/List/List";
+import { Type } from "./pages/Type/Type";
+import { Index } from "./pages/Index/Index";
+import "./App.css";
+
+const history = createBrowserHistory();
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrap">
+      <Router>
+        <CacheSwitch>
+          <CacheRoute exact path="/storylist/:classifyId" component={List} when="always" cacheKey="ListComponent" history={history} />
+          <Route exact path="/storydetail/:id" component={Detail} history={history} />
+          <Route path="/storytype" component={Type} history={history} />
+          <Route path="/index" component={Index} history={history} />
+        </CacheSwitch>
+      </Router>
     </div>
   );
 }

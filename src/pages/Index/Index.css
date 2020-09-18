@@ -1,0 +1,18 @@
+.banner{
+    position: relative;
+}
+.timer{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.timer>span{
+    display: inline-block;
+    font-size: 0.14rem;
+}
+.welcome {
+    height: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    font-size: 0.14rem;
+}

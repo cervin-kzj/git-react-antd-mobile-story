@@ -1,0 +1,9 @@
+.am-navbar-light {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    z-index: 1;
+}
+.footer{
+    text-align: center;
+}
